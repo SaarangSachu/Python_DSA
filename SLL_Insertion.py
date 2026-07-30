@@ -61,6 +61,51 @@ class sll:
         else:
             print('no node is present')
 
+    def delete_end(self):
+        if self.head==None:
+            print("no node is present")
+        elif self.head.next==None:
+            node=self.head
+            data=node.data
+            self.head=None
+            del node
+            return data
+        else:
+            prev=self[len(self)-2]
+            node=self[len(self)-1]
+            prev.next=None
+            data=node.data
+            del node
+            return data
+        
+    def delete_between(self,index):
+        if 0<=index<len(self):
+            if index==0:
+                return self.delete_begining()
+            elif index==len(self)-1:
+                return self.delete_end()
+            else:
+                prev=self[index-1]
+                node=self[index]
+                next=node.next
+
+                prev.next=next
+                data=node.data
+                del node
+                return data
+        else:
+            print("invalid index")
+
+    def search(self,data):
+        current=self.head
+        while current:
+            if current.data==data:
+                return True
+            current=current.next
+        else:
+            print("target not found")
+            return False
+            
     def display(self):
         current=self.head
         while current:
@@ -75,5 +120,11 @@ s.insert_end(30)
 s.insert_between(23,0)
 
 s.display()
-s.delete_begining()
-s.display
+print("")
+print("deleted ",s.delete_begining())
+s.display()
+print('deleted ',s.delete_end())
+s.display()
+print('deleted ',s.delete_between(1))
+s.display()
+print(s.search(20))
