@@ -21,6 +21,51 @@ class bst:
                 self.rchild=bst(data)
             else:
                 self.rchild.insert(data)
+
+    def preorder(self):
+        if self.key==None:
+            print("tree is empty")
+            return
+        print(self.key,end=" ")
+        if self.lchild:
+            self.lchild.preorder()
+        if self.rchild:
+            self.rchild.preorder()
+
+    def inorder(self):
+        if self.key==None:
+            print("tree is empty")
+            return
+        if self.lchild:
+            self.lchild.inorder()
+        print(self.key,end=" ")
+        if self.rchild:
+            self.rchild.inorder()
+
+    def postorder(self):
+        if self.key==None:
+            print("empty")
+            return
+        if self.lchild:
+            self.lchild.postorder()
+        if self.rchild:
+            self.rchild.postorder()
+        print(self.key,end=" ")
+
+    def bfs(self):
+        if self.key == None:
+            print('empty')
+            return
+        queue=[self]
+        while queue:
+            current=queue.pop(0)
+            print(current.key,end=" ")
+
+            if current.lchild:
+                queue.append(current.lchild)
+            if current.rchild:
+                queue.append(current.rchild)
+
     def search(self,data):
         if self.key is None:
             print("empty")
@@ -38,6 +83,24 @@ class bst:
                 print("not present")
             else:
                 self.rchild.search(data)
+
+    def min_node(self):
+        if self.key==None:
+            print("empty")
+            return
+        node=self
+        while node.lchild:
+            node=node.lchild
+        return node.key
+
+    def max_node(self):
+        if self.key==None:
+            print("empty")
+            return
+        node=self
+        while node.rchild:
+            node=node.rchild
+        return node.key
 # root=bst(None)
 # root.insert(10)
 # root.insert(20)
@@ -59,5 +122,16 @@ root.search(18)
 print(root.key)
 print(root.lchild.key)
 print(root.rchild.key)
+root.preorder()
+print("")
+root.inorder()
+print("")
+root.postorder()
+print("")
+root.bfs()
+print("")
+print(root.min_node())
+print("")
+print(root.max_node())
 # print(root.rchild.rchild.key)
 # print(root.rchild.lchild.key)
