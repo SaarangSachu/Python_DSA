@@ -101,6 +101,36 @@ class bst:
         while node.rchild:
             node=node.rchild
         return node.key
+
+    def delete_node(self,data):
+        if self.key == None:
+            print("tree is empty")
+            return self
+
+        if data<self.key:
+            if self.lchild:
+                self.lchild=self.lchild.delete_node(data)
+            else:
+                print("given node is not present")
+        elif data>self.key:
+            if self.rchild:
+                self.rchild=self.rchild.delete_node(data)
+            else:
+                print("given node is not present")
+        else:
+            if self.lchild is None:
+                return self.rchild
+            elif self.rchild is None:
+                return self.lchild
+
+            succ =self.rchild
+            while succ.lchild:
+                succ=succ.lchild
+
+            self.key = succ.key
+            self.rchild=self.rchild.delete_node(succ.key)
+
+        return self
 # root=bst(None)
 # root.insert(10)
 # root.insert(20)

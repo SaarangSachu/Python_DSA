@@ -28,7 +28,7 @@ class dll:
     def insert_begining(self,data):
         new_node=dnode(data)
         if self.head is None:
-            new_node.next=self.head
+            # new_node.next=self.head
             self.head=new_node
             self.tail=new_node
             return
@@ -118,6 +118,7 @@ class dll:
             return data
         else:
             print("no node")
+           
     def forward(self):
         current=self.head
         while current:
@@ -133,16 +134,17 @@ class dll:
 d=dll()
 d.insert_begining(20)
 d.insert_begining(10)
-d.insert_end(30)
-d.insert_between(15,1)
+print(d.tail.data)
+# d.insert_end(30)
+# d.insert_between(15,1)
+# d.forward()
+# d.backward()
+# print(d.delete_beginig())
+# print("")
+# d.forward()
+# d.delete_end()
+# print("")
 d.forward()
-d.backward()
-print(d.delete_beginig())
-print("")
-d.forward()
-d.delete_end()
-print("")
-d.forward()
-print("")
-d.delete_between(1)
-d.forward()
+# print("")
+# d.delete_between(1)
+# d.forward()
