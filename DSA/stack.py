@@ -1,10 +1,10 @@
 class stack:
     def __init__(self):
         self.stack=[]
-    def push(self,data):
+    def push_item(self,data):
         self.stack.append(data)
         print(data,' pushed to stack')
-    def pop(self):
+    def pop_item(self):
         if len(self.stack)!=0:
             return self.stack.pop()
         else:
@@ -20,17 +20,17 @@ class stack:
 
 
 s=stack()
-s.push(2)
-s.push(15)
-s.push(30)
+s.push_item(2)
+s.push_item(15)
+s.push_item(30)
 print(s.stack)
-s.pop()
+s.pop_item()
 print(s.stack)
-s.pop()
-s.pop()
+s.pop_item()
+s.pop_item()
 print(s.is_empty())
 
 a=stack()
-a.push(12)
-a.push(22)
+a.push_item(12)
+a.push_item(22)
 print(a.stack)
