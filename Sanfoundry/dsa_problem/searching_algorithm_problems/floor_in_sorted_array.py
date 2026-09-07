@@ -7,7 +7,7 @@ def find_floor(arr,x):
             break
     return ans
 
-arr=[1,2,3,4,5,6,8,9,10]
+arr=[1,2,3,4,5,6,7,8,9,10]
 x=7
 
 print(find_floor(arr,x))
