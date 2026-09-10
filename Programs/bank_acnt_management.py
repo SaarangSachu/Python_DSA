@@ -73,6 +73,6 @@ alice_checking.withdraw(200)
 # add acount to customer
 alice.add_account(alice_saving)
 alice.add_account(alice_checking)
-# Check net worth
+# # Check net worth
 print(f"Alice's total net worth is: ${alice.get_total_balance()}")
 
